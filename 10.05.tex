@@ -1,0 +1,66 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%              This is a general scheme for my grad homework write-ups; the first draft was prepared during Jan 31 2015
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\documentclass[10pt, letterpaper, twoside]{amsart}  %"twoside" allows left/even and right/odd page # and headers
+
+
+%MATH PACKAGES------------------------------------------------------------------------------------------------------
+
+ %\usepackage{amsmath}       %this package invokes extra math commands, e. g., "pmatrix" and "text"
+ %\usepackage{amsthm}        %this package invokes 4 possible thm styles, e. g., "dfn," "rem," etc.
+ %\usepackage{amssymb}       %this package invokes ams fonts, e. g., "blackboard" and "fraktur"
+ %\usepackage{latexsym}      %this package invokes new commands,e.g., the "\'" smaller and higher prime
+ %\usepackage{enumerate}
+
+ %\theoremstyle{definition}  %or you can use "theorem" for italicized statement
+   %\newtheorem*{exercise1}{Exercise 10.05}
+%----------------------------------------------------------------------------------------------------------------------
+
+%\begin{document}
+
+%------------------------------------------------------------------------------------------------------------------------
+\begin{flushleft}               %this is for more traditional hw write-ups
+
+  \end{flushleft}
+
+%------------------------------------------------------------------------------------------------------------------------
+\vspace{1cm}
+%------------------------------------------------------------------------------------------------------------------------
+
+%problem #1
+\begin{exercise1}
+  Let $X_1$,$X_2$,...,$X_n$ be a random sample from a gamma distribution, $X_i\thicksim\mathrm{GAM}(\theta,2)$. Show that S=$\sum{X_i}$ is sufficient for $\theta$.\newline
+  (a) by using equation (10.2.1).\newline
+  (b) by the factorization criterion of equation (10.2.3).
+\end{exercise1}
+
+\begin{proof}[Proof]
+(a) by using equation (10.2.1).\newline
+   \begin{align*}
+    f_(x_1,...,x_n;\theta)&=\prod_{i=1}^n \frac {1}{\theta^2 \Gamma(2)}X_i e^\frac{-x_i}{\theta}\\
+                             &=\theta^{-2n}\Gamma(2)^{-n} e^\frac{-x_i}{\theta}\prod_{i=1}^n X_i
+  \end{align*}
+  Since S=$\sum_{i=1}^n{X_i}$, and we also know that $S\sim\mathrm{GAM}(\theta,2n)$ with MGF method, then we will have\newline
+  $$ f_s(s;\theta)=\frac {1}{\theta^{2n}\Gamma(2n)}s e^\frac{-s}{\theta}$$
+  Thus,
+  \begin{align*}
+  \frac{f_(x_1,...,x_n;\theta)}{f_s(s;\theta)}&=\frac{\prod_{i=1}^n X_i}{\theta^{2n}\Gamma(2)^{n}e^\frac{-x}{\theta}}\times\frac{{\theta^{2n}\Gamma(2n)}e^\frac{s}{\theta}}{s}\\
+         &=\frac{{\prod_{i=1}^n X_i}\Gamma(2n)}{\Gamma(2)^{n}s},
+   \end{align*}
+   which is free of $\theta$, therefore, S=$\sum_{i=1}^n X_i$ is sufficient for $\theta$.
+
+   (b)  by the factorization criterion of equation (10.2.3)\newline
+   \begin{align*}
+   f_(x_1,...,x_n;\theta)&=\theta^{-2n}\Gamma(2)^{-n} e^\frac{-x_i}{\theta}\prod_{i=1}^n X_i\\
+                         &=(\theta^{-2n}e^\frac{-x_i}{\theta})(\Gamma(2)^{-n}\prod_{i=1}^n X_i)\\
+                         &=g(s;\theta)h(x_1,...x_n)
+     \end{align*}
+     Therefore, S=$\sum_{i=1}^n X_i$ is sufficient for $\theta$.
+
+\end{proof}
+
+%------------------------------------------------------------------------------------------------------------------------
+
+%\end{document}
